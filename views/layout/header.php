@@ -42,7 +42,15 @@
                 <li class="nav-item"><a class="nav-link" href="#">Ubicación</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Horarios</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Tienda</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Iniciar Sesión</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="startDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Iniciar
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="startDropdown">
+                        <li><a class="dropdown-item" href="#">Iniciar sesión</a></li>
+                        <li><a class="dropdown-item" href="#">Registrarse</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
@@ -51,3 +59,6 @@
 </header>
 
     <main>
+
+<!-- Script pequeño para permitir toggle del dropdown en dispositivos táctiles (siendo redundante con Bootstrap) -->
+<script src="assets/js/indexcontroller.js"></script>
