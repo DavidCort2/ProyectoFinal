@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: #fff; /* Blanco puro */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== Barra superior ===== */
+.top-bar {
+    font-size: 0.9rem;
+    background: #222;
+    color: #fff;
+}
+
+/* ===== Navbar flotante ===== */
+.custom-navbar {
+    background: #fff; /* Fondo blanco */
+    margin: 0 auto;
+    margin-top: -5px; /* Para que "flote" debajo de la top-bar */
+    width: 90%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    position: relative;
+}
+
+/* Navbar links */
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link {
+    color: #000 !important; /* Texto negro */
+    transition: all 0.3s ease;
+}
+
+.custom-navbar .nav-link.active {
+    font-weight: bold;
+}
+
+/* Hover en navbar */
+.custom-navbar .nav-link:hover {
+    color: #007BFF !important; /* Azul Bootstrap */
+    text-decoration: none;
+}
+
+
+/* Logo dentro del navbar */
+.logo-nav {
+    height: 40px;   /* Tamaño fijo */
+    width: auto;    /* Mantiene proporción */
+    object-fit: contain; /* Evita deformación */
+}
+
+/* ===== Primera sección azul ===== */
+.section-hero {
+    background: #007BFF; /* Azul Bootstrap */
+    color: #fff;
+    text-align: center;
+    padding: 120px 20px 60px 20px; /* Empuja el contenido hacia abajo */
+    position: relative;
+    z-index: 1;
+}
+
+.section-hero h1,
+.section-hero p {
+    margin: 0 0 15px 0;
+}
+/* ===== Segunda sección (otro color) ===== */
+.section-alt {
+    background: #f4f4f9;
+    color: #333;
+    text-align: center;
+    padding: 80px 20px;
+}
+/* ===== tercera sección (otro color) ===== */
+.section-next {
+    background: #c8cbce; /* Gris claro */
+    color: #333;
+    text-align: center;
+    padding: 80px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== Divisor en forma de rombo ===== */
+.section-divider {
+    position: relative;
+    width: 20px;   /* Tamaño del rombo */
+    height: 20px;
+    background: #000; /* Negro */
+    margin: -10px auto; /* Lo centra y lo superpone */
+    transform: rotate(45deg); /* Rota el cuadrado a rombo */
+    z-index: 10;
+}
+
+/* ===== Divisor en forma de rombos continuos ===== */
+.section-divider-romb-chain {
+  width: 100%;
+  height: 20px;               
+  margin: -10px 0;             
+  line-height: 0;
+  z-index: 10;
+  display: block;
+  overflow: hidden;
+
+  /* Fondo transparente para que solo se vean los rombos */
+  background-color: transparent;
+
+  /* SVG del rombo puntiagudo en una sola línea */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'><polygon points='10,0 20,10 10,20 0,10' fill='%23c8cbce'/></svg>");
+
+  background-repeat: repeat-x;
+  background-position: center;
+  background-size: 20px 20px;    /* cada rombo mide 20x20 */
+}
+
+/* Ajuste del contenido */
+main {
+    flex: 1;
+    margin-top: -62px; /* Navbar flotante sobre el azul */
+}
+
+/* ===== Footer al fondo ===== */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto; /* Empuja el footer al fondo */
+    width: 100%;
+}
