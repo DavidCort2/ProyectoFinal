@@ -1,6 +1,6 @@
-<section class="section-hero">
+<section class="section-hero" id="sobre-nosotros">
     <div class="container text-center">
-        <h1>SPORT MANAGER FC</h1>
+        <h1>Sobre nosotros</h1>
 
         <!-- Carrusel de imágenes usando Bootstrap 5 -->
         <div id="heroCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
@@ -38,14 +38,21 @@
     </div>
 </section>
 <div class="section-divider"></div>
-<section class="section-alt">
-    <h2>Otra sección</h2>
+<section class="section-alt" id="planes">
+    <h2>Planes</h2>
     <p>Contenido de la segunda sección con otro color.</p>
 </section>
 <div class="section-divider-romb-chain"></div>
-<section class="section-next">
+<section class="section-next" id="beneficios">
     <div class="container">
-        <h2>Otra Sección</h2>
+        <h2>Beneficios</h2>
         <p>Contenido de la siguiente sección.</p>
+    </div>
+</section>
+<div class="section-divider-romb-chain"></div>
+<section class="section-end" id="contacto">
+    <div class="container">
+        <h2>Contacto</h2>
+        <p>Contenido de la sección de contacto.</p>
     </div>
 </section>

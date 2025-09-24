@@ -13,6 +13,16 @@ body {
     flex-direction: column;
 }
 
+/* Smooth scrolling and anchor offset to account for overlapping navbar */
+html {
+    scroll-behavior: smooth;
+}
+
+/* When an element is targeted by an anchor, offset it so it's visible below the fixed navbar */
+section[id] {
+    scroll-margin-top: calc(var(--navbar-overlap) + 10px);
+}
+
 /* ===== Barra superior ===== */
 .top-bar {
     font-size: 0.9rem;
@@ -104,6 +114,16 @@ body {
     z-index: 1;
 }
 
+/* ===== Sección final / contacto: aplicar mismo estilo que las demás secciones ===== */
+.section-end {
+    background: #f4f4f9; /* mismo tono que section-alt */
+    color: #333;
+    text-align: center;
+    padding: 80px 20px;
+    position: relative;
+    z-index: 1;
+}
+
 /* ===== Divisor en forma de rombo ===== */
 .section-divider {
     position: relative;
@@ -117,9 +137,9 @@ body {
 
 /* ===== Divisor en forma de rombos continuos ===== */
 .section-divider-romb-chain {
-  width: 100%;
-  height: 20px;               
-  margin: -10px 0;             
+    width: 100%;
+    height: 20px;               
+    margin: -10px 0;             
   line-height: 0;
   z-index: 10;
   display: block;
@@ -136,6 +156,30 @@ body {
   background-size: 20px 20px;    /* cada rombo mide 20x20 */
 }
 
+/* Divisor con doble patrón: cuando el divisor está entre .section-alt (arriba) y
+   .section-next (abajo) pintamos dos pseudo-elementos con el patrón en colores
+   correspondientes para crear el efecto de 'corte' sobre ambos lados. */
+
+/* Si el divisor precede a .section-end, mostramos el patrón encima (como corte) usando ::before */
+.section-divider-romb-chain + .section-end {
+    position: relative;
+}
+.section-divider-romb-chain + .section-end::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 20px;
+    top: -10px; /* superpone hacia arriba */
+    display: block;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'><polygon points='10,0 20,10 10,20 0,10' fill='%23c8cbce'/></svg>");
+    background-repeat: repeat-x;
+    background-position: center;
+    background-size: 20px 20px;
+    z-index: 15;
+    pointer-events: none;
+}
+
 /* Ajuste del contenido */
 main {
     flex: 1;
@@ -144,12 +188,60 @@ main {
 
 /* ===== Footer al fondo ===== */
 footer {
-    background: #333;
+    background: #000;
     color: #fff;
     text-align: center;
     padding: 10px 0;
     margin-top: auto; /* Empuja el footer al fondo */
     width: 100%;
+}
+
+/* Back to top button (limpio y específico) */
+#backToTop {
+    /* Floating square button */
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 99999;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    max-width: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: #007BFF;
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    border: none;
+    opacity: 0;
+    transform: translateY(12px) scale(.95);
+    transition: opacity .28s ease, transform .28s ease, visibility .12s;
+    visibility: hidden;
+    cursor: pointer;
+    pointer-events: none; /* inactivo hasta que sea visible */
+}
+
+#backToTop svg path { stroke: #fff; }
+#backToTop:hover { background: #0056b3; }
+
+/* Estado visible */
+#backToTop.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* En móviles reducir tamaño si se desea */
+@media (max-width: 480px) {
+    #backToTop {
+        right: 12px;
+        bottom: 12px;
+        width: 44px;
+        height: 44px;
+    }
 }
 
 /* ===== Dropdown: mostrar al pasar el mouse en escritorio ===== */
@@ -352,3 +444,6 @@ footer {
         height: var(--hero-height-xl);
     }
 }
+
+/* Si el rombo está antes de la sección .section-next queremos también mostrarlo debajo
+   usando un pseudo-elemento en la propia sección. Esto asegura el efecto arriba y abajo. */

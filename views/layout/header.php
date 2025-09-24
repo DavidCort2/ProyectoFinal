@@ -38,10 +38,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link active" href="index.php">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Ubicación</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Horarios</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Tienda</a></li>
+                <li class="nav-item"><a class="nav-link" href="#sobre-nosotros">Sobre nosotros</a></li>
+                <li class="nav-item"><a class="nav-link" href="#planes">Planes</a></li>
+                <li class="nav-item"><a class="nav-link" href="#beneficios">Beneficios</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="startDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Iniciar
