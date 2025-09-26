@@ -25,21 +25,94 @@ section[id] {
 
 /* ===== Barra superior ===== */
 .top-bar {
-    font-size: 0.9rem;
     background: #222;
     color: #fff;
+    padding: 0.4rem 0;
+}
+
+.top-bar .container-fluid {
+    max-width: 1140px; /* Limitar ancho máximo */
+    margin: 0 auto;
+}
+
+.top-bar .contact-info {
+    font-size: 0.9rem; /* Reducido de 0.95rem */
+}
+
+.top-bar .contact-info i {
+    color: #007BFF;
+    margin-right: 0.2rem; /* Reducido de 0.3rem */
+}
+
+.top-bar .separator {
+    margin: 0 0.75rem; /* Reducido de 1rem */
+    opacity: 0.5;
+}
+
+.top-bar .social-icons a {
+    color: #fff;
+    font-size: 1rem; /* Reducido de 1.1rem */
+    transition: color 0.3s ease;
+    padding: 0.25rem; /* Añadido para mejor área de toque */
+}
+
+/* Ajustes responsive */
+@media (max-width: 768px) {
+    .top-bar {
+        padding: 0.4rem 0;
+    }
+
+    .top-bar .contact-info {
+        font-size: 0.8rem;
+    }
+
+    .top-bar .separator {
+        margin: 0 0.5rem;
+    }
+
+    .top-bar .social-icons a {
+        font-size: 0.9rem;
+        padding: 0.2rem;
+    }
+
+    /* Ajustar espaciado entre iconos */
+    .social-icons a.me-3 {
+        margin-right: 0.5rem !important;
+    }
+}
+
+/* Ajustes para pantallas muy pequeñas */
+@media (max-width: 576px) {
+    .top-bar .contact-info {
+        font-size: 0.75rem;
+    }
+
+    .top-bar .separator {
+        margin: 0 0.3rem;
+    }
+
+    .top-bar .social-icons a {
+        font-size: 0.85rem;
+    }
+
+    /* Reducir aún más el espaciado entre elementos */
+    .social-icons a.me-3 {
+        margin-right: 0.3rem !important;
+    }
 }
 
 /* ===== Navbar flotante ===== */
 .custom-navbar {
-    background: #fff; /* Fondo blanco */
+    background: #fff;
     margin: 0 auto;
-    margin-top: -5px; /* Para que "flote" debajo de la top-bar */
-    width: 90%;
+    margin-top: -5px;
+    width: 80%; /* Reducido de 90% */
+    max-width: 1140px; /* Añadido límite máximo */
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
     z-index: 1000;
     position: relative;
+    padding: 0.5rem 0; /* Reducido el padding vertical */
 }
 
 /* Navbar links */
@@ -62,9 +135,18 @@ section[id] {
 
 /* Logo dentro del navbar */
 .logo-nav {
-    height: 40px;   /* Tamaño fijo */
-    width: auto;    /* Mantiene proporción */
-    object-fit: contain; /* Evita deformación */
+    height: 48px; /* Aumentado de 40px */
+    width: auto;
+    object-fit: contain;
+}
+
+/* Ajustar espaciado en navbar */
+.custom-navbar .navbar-brand {
+    padding: 0.25rem 0;
+}
+
+.custom-navbar .nav-link {
+    padding: 0.5rem 1rem; /* Reducido el padding vertical */
 }
 
 /* ===== Primera sección azul ===== */
@@ -183,7 +265,7 @@ section[id] {
 /* Ajuste del contenido */
 main {
     flex: 1;
-    margin-top: -62px; /* Navbar flotante sobre el azul */
+    margin-top: -67px; /* Navbar flotante sobre el azul */
 }
 
 /* ===== Footer al fondo ===== */
@@ -447,3 +529,177 @@ footer {
 
 /* Si el rombo está antes de la sección .section-next queremos también mostrarlo debajo
    usando un pseudo-elemento en la propia sección. Esto asegura el efecto arriba y abajo. */
+
+/* Footer Styles */
+.footer-main {
+    background-color: #222; /* Igual que .top-bar */
+    color: #fff;
+    padding-top: 3rem;
+}
+
+.footer-heading {
+    color: #fff;
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.footer-text {
+    color: #f4f4f9; /* Igual que el fondo de .section-alt */
+    line-height: 1.6;
+    text-align: center;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.footer-links li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+    color: #f4f4f9;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #007BFF; /* Azul principal */
+}
+
+.footer-contact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.footer-contact li {
+    margin-bottom: 0.75rem;
+    color: #f4f4f9;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrar elementos */
+    gap: 0.5rem;
+}
+
+.footer-contact i {
+    color: #007BFF; /* Azul principal */
+}
+
+.footer-divider {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 2rem 0 1.5rem;
+}
+
+.footer-bottom {
+    padding: 1.5rem 0;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.footer-bottom p {
+    color: #f4f4f9;
+    font-size: 0.9rem;
+}
+
+/* Hover states */
+.footer-links a:hover,
+.footer-contact a:hover {
+    color: #007BFF;
+}
+
+.footer-contact li:hover i {
+    color: #0056b3; /* Azul más oscuro al hover */
+}
+/* Loader styles */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #007bff;
+    border-top: 5px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+ /* ===== Estilos para la sección de planes ===== */
+.card{
+margin-top: 20px;
+background-color: #c8cbce;
+border-radius: 15px;
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+padding: 30px;
+width: 300px;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card h2 {
+    margin: 0;
+    color: #1e1e1e;
+}
+
+.price {
+    font-size: 2.5rem;
+    color: #0e0d0d;
+    margin: 20px 0;
+}
+
+.features{
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    text-align: left;
+    color: #1e1e1e;
+}
+
+.features li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.btnPrice{
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 1rem;
+    color: #eff9f3;
+    background-color: #27f27f;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+.btnPrice:hover {
+    background-color: #2cb95d;
+    text-decoration: none;
+    color: #aef1b4;
+}
+

@@ -1,8 +1,6 @@
 (function(){
-    // Detectar soporte touch
-    var isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-
-    // Dropdown toggle para dispositivos táctiles (solo si es touch)
+   /* var isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    
     function initDropdownTouch(){
         var toggles = document.querySelectorAll('.nav-item.dropdown > .nav-link');
         toggles.forEach(function(toggle){
@@ -19,7 +17,7 @@
             });
         });
     }
-
+*/
     // Lee la variable CSS --navbar-overlap y devuelve un número en px
     function getNavbarOverlap(){
         var val = getComputedStyle(document.documentElement).getPropertyValue('--navbar-overlap');
@@ -67,13 +65,33 @@
         });
     }
 
+    function initLoader() {
+        const loader = document.getElementById('preloader');
+        if (!loader) return;
+
+        // Ocultar loader después de un tiempo mínimo
+        setTimeout(() => {
+            loader.classList.add('hidden');
+            setTimeout(() => {
+                loader.remove();
+            }, 500);
+        }, 500);
+
+        // También ocultar cuando la página esté completamente cargada
+        window.addEventListener('load', () => {
+            loader.classList.add('hidden');
+            setTimeout(() => {
+                loader.remove();
+            }, 500);
+        });
+    }
+
     function onReady(){
         if(isTouch) initDropdownTouch();
         initNavLinks();
-        // Inicializar marcado de enlace activo según la sección visible
         initActiveOnScroll();
-
         initBackToTop();
+        initLoader(); // Añadir inicialización del loader
 
         // Si la página se carga con un hash, hacer scroll al objetivo
         if(window.location.hash){
